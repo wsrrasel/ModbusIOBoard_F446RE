@@ -1,0 +1,9 @@
+../Core/Src/TimeStamp.c:17:6:TS_Init	24	static
+../Core/Src/TimeStamp.c:32:6:TS_StartTimer	16	static
+../Core/Src/TimeStamp.c:40:6:TS_StopTimer	16	static
+../Core/Src/TimeStamp.c:46:6:TS_SetTimerType	16	static
+../Core/Src/TimeStamp.c:51:6:TS_UpdateTime	32	static
+../Core/Src/TimeStamp.c:60:10:TS_GetUS	32	static
+../Core/Src/TimeStamp.c:76:10:TS_GetMS	16	static
+../Core/Src/TimeStamp.c:81:6:TS_GetTime	72	static
+../Core/Src/TimeStamp.c:91:6:TS_CatchOVF	32	static

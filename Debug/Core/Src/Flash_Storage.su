@@ -1,0 +1,8 @@
+../Core/Src/Flash_Storage.c:35:9:FLASH_Download	16	static
+../Core/Src/Flash_Storage.c:61:9:FLASH_Upload	8	static
+../Core/Src/Flash_Storage.c:72:6:FLASH_CheckForChanges	16	static
+../Core/Src/Flash_Storage.c:98:9:FLASH_ReadInt	16	static
+../Core/Src/Flash_Storage.c:127:9:FLASH_WriteInt	16	static
+../Core/Src/Flash_Storage.c:152:9:FLASH_Read	32	static
+../Core/Src/Flash_Storage.c:182:9:FLASH_Write	80	static
+../Core/Src/Flash_Storage.c:238:9:FLASH_Erase	16	static

@@ -1,0 +1,5 @@
+../Core/Src/Modbus/MB_RTUSlave.c:15:6:MBRS_Init	1
+../Core/Src/Modbus/MB_RTUSlave.c:20:14:MBRS_GetInstance	1
+../Core/Src/Modbus/MB_RTUSlave.c:23:6:MBRS_SetInstance	1
+../Core/Src/Modbus/MB_RTUSlave.c:36:9:MBRS_CheckSAnCRC	5
+../Core/Src/Modbus/MB_RTUSlave.c:64:9:MBRS_processRequest	9

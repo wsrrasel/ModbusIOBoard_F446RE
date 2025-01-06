@@ -1,0 +1,12 @@
+../Core/Src/Callbacks.c:40:13:PrintMBRequest	2
+../Core/Src/Callbacks.c:54:6:CB_MB_InitCallback	1
+../Core/Src/Callbacks.c:64:9:CB_MB_RcvByte	1
+../Core/Src/Callbacks.c:67:9:CB_MB_Send	1
+../Core/Src/Callbacks.c:71:6:CB_MB_SetUpstream	1
+../Core/Src/Callbacks.c:74:6:CB_MB_SetDownstream	1
+../Core/Src/Callbacks.c:85:9:CB_MB_readDICallback	5
+../Core/Src/Callbacks.c:118:9:CB_MB_writeCOCallback	7
+../Core/Src/Callbacks.c:158:9:CB_MB_readCOCallback	7
+../Core/Src/Callbacks.c:198:9:CB_MB_readIRCallback	2
+../Core/Src/Callbacks.c:221:9:CB_MB_writeHRCallback	20
+../Core/Src/Callbacks.c:291:9:CB_MB_readHRCallback	9

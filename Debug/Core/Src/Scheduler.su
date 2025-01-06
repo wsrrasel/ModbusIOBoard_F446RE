@@ -1,0 +1,9 @@
+../Core/Src/Scheduler.c:76:6:SchedulerInit	16	static
+../Core/Src/Scheduler.c:128:6:Scheduler	8	static
+../Core/Src/Scheduler.c:164:6:SupperLoop	8	static
+../Core/Src/Scheduler.c:190:6:MediumLoop	8	static
+../Core/Src/Scheduler.c:216:6:VerySlowLoop	48	static
+../Core/Src/Scheduler.c:255:9:TimeReached	16	static
+../Core/Src/Scheduler.c:267:6:SetLastScheduleTime	24	static
+../Core/Src/Scheduler.c:274:6:PrintVersion	8	static
+../Core/Src/Scheduler.c:282:6:PrintBoardInfo	96	static

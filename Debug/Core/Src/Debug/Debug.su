@@ -1,0 +1,12 @@
+../Core/Src/Debug/Debug.c:30:6:DEBUG_INIT	16	static
+../Core/Src/Debug/Debug.c:77:6:DEBUG_ENABLE	4	static
+../Core/Src/Debug/Debug.c:90:6:DEBUG_DISABLE	4	static
+../Core/Src/Debug/Debug.c:99:6:DEBUG_PRINT	32	static
+../Core/Src/Debug/Debug.c:115:5:DEBUG_SPRINT	16	static
+../Core/Src/Debug/Debug.c:136:5:DEBUG_SPRINT_NL	80	static
+../Core/Src/Debug/Debug.c:167:5:DEBUG_SPRINT_APPEND	540	static
+../Core/Src/Debug/Debug.c:191:6:DEBUG_PRINT_INT	32	static
+../Core/Src/Debug/Debug.c:206:6:DEBUG_PRINT_FLOAT	32	static
+../Core/Src/Debug/Debug.c:221:6:DEBUG_READ	16	static
+../Core/Src/Debug/Debug.c:230:6:DEBUG_ENABLE_PRINTF	4	static
+../Core/Src/Debug/Debug.c:240:10:DBUG_TransTimeout	16	static
