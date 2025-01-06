@@ -282,4 +282,33 @@ void USART6_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
+
+	if (huart->Instance == USART6) {
+		char str[50] = {0};
+		uint8_t len = 0;
+		len += sprintf(&str[len],"MB_Err: ");
+	//	len = sprintf(str,"MB_ERR[%ld]: ",huart2.ErrorCode);
+		if(huart->ErrorCode & HAL_UART_ERROR_PE){
+			len += sprintf(&str[len],"PE, ");
+		} if(huart->ErrorCode & HAL_UART_ERROR_NE){
+			len += sprintf(&str[len],"NE, ");
+		} if(huart->ErrorCode & HAL_UART_ERROR_FE){
+			len += sprintf(&str[len],"FE, ");
+		} if(huart->ErrorCode & HAL_UART_ERROR_ORE){
+			len += sprintf(&str[len],"OE, ");
+
+		} if(huart->ErrorCode & HAL_UART_ERROR_DMA){
+			len += sprintf(&str[len],"DMA, ");
+		}
+
+		len += sprintf(&str[len],"\r\n");
+		DEBUG_PRINT(str);
+
+//		gVar.mbSerial.errCount++;
+
+		__HAL_UART_CLEAR_OREFLAG(huart);
+		__HAL_UART_ENABLE_IT(huart,UART_IT_RXNE);
+	}
+}
 /* USER CODE END 1 */
