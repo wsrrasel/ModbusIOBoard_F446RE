@@ -9,6 +9,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\Work\ProjectWork\ModbusIO\FW\ModbusIOBoard_F446RE"/>
 			<item value="D:\Work\ProjectWork\ModbusRTUSlave\SourceCode\ModbusRTUSlave_V1.0"/>
 		</list>
 	</section>

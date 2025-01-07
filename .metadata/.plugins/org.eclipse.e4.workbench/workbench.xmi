@@ -354,7 +354,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YDF_gHElEe-qh_ALqUcG4w" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_y5goUHElEe-z_qQS4euoyw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_XnMtwnElEe-qh_ALqUcG4w"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FlYpkMzkEe-30PM-SHxL7A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_XnMtwnElEe-qh_ALqUcG4w"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YDF_gXElEe-qh_ALqUcG4w" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -362,8 +362,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YDF_g3ElEe-qh_ALqUcG4w" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_y5idgHElEe-z_qQS4euoyw" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_XnKRpnElEe-qh_ALqUcG4w"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_y5idgXElEe-z_qQS4euoyw" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_XnK4xnElEe-qh_ALqUcG4w"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FlZ3sMzkEe-30PM-SHxL7A" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_XnKRpnElEe-qh_ALqUcG4w"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FlZ3sczkEe-30PM-SHxL7A" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_XnK4xnElEe-qh_ALqUcG4w"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YDF_hHElEe-qh_ALqUcG4w" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -387,7 +387,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YDF_iHElEe-qh_ALqUcG4w" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_y5jEkXElEe-z_qQS4euoyw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_XnMG8HElEe-qh_ALqUcG4w"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FlbF0MzkEe-30PM-SHxL7A" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_XnMG8HElEe-qh_ALqUcG4w"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YDF_iXElEe-qh_ALqUcG4w" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -684,6 +684,8 @@
     <bindings xmi:id="_XnuSMHElEe-qh_ALqUcG4w" keySequence="ALT+O" command="_XnLfsnElEe-qh_ALqUcG4w"/>
     <bindings xmi:id="_XnuSNHElEe-qh_ALqUcG4w" keySequence="ALT+-" command="_XnLftXElEe-qh_ALqUcG4w"/>
     <bindings xmi:id="_XnuSOXElEe-qh_ALqUcG4w" keySequence="ALT+CR" command="_XnMG_3ElEe-qh_ALqUcG4w"/>
+    <bindings xmi:id="_E5Lq4MzkEe-30PM-SHxL7A" keySequence="CTRL+SHIFT+M" command="_E42TsMzkEe-30PM-SHxL7A"/>
+    <bindings xmi:id="_E5MR8MzkEe-30PM-SHxL7A" keySequence="CTRL+SHIFT+C" command="_E42TsczkEe-30PM-SHxL7A"/>
   </bindingTables>
   <bindingTables xmi:id="_XnmWWnElEe-qh_ALqUcG4w" elementId="org.eclipse.ui.genericeditor.genericEditorContext" bindingContext="_XnQ_KXElEe-qh_ALqUcG4w">
     <bindings xmi:id="_XnmWW3ElEe-qh_ALqUcG4w" keySequence="CTRL+SHIFT+P" command="_XnK4i3ElEe-qh_ALqUcG4w"/>
@@ -2519,6 +2521,8 @@
   <commands xmi:id="_YAsLwnElEe-qh_ALqUcG4w" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.togglesplitpane" commandName="Toggle Split Pane" description="Toggle Split Pane" category="_XnGnNXElEe-qh_ALqUcG4w"/>
   <commands xmi:id="_YAsLw3ElEe-qh_ALqUcG4w" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.switchMemoryBlock" commandName="Switch Memory Monitor" description="Switch Memory Monitor" category="_XnGnNXElEe-qh_ALqUcG4w"/>
   <commands xmi:id="_YAsLxHElEe-qh_ALqUcG4w" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.memoryViewPreferencesAction" commandName="Preferences..." description="&amp;Preferences..." category="_XnGnNXElEe-qh_ALqUcG4w"/>
+  <commands xmi:id="_E42TsMzkEe-30PM-SHxL7A" elementId="com.googlecode.cppcheclipse.commands.ClearMarkersCommand" commandName="Clear cppcheck Markers" description="Clears all cppcheck markers in the selected file(s)" category="_E41FkMzkEe-30PM-SHxL7A"/>
+  <commands xmi:id="_E42TsczkEe-30PM-SHxL7A" elementId="com.googlecode.cppcheclipse.commands.RunCommand" commandName="Run cppcheck" description="Runs cppcheck on the selected file(s)" category="_E41FkMzkEe-30PM-SHxL7A"/>
   <addons xmi:id="_XmuMnnElEe-qh_ALqUcG4w" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_XmuMn3ElEe-qh_ALqUcG4w" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_XmuMoHElEe-qh_ALqUcG4w" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2530,7 +2534,7 @@
   <addons xmi:id="_XmuMpnElEe-qh_ALqUcG4w" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_XmuMp3ElEe-qh_ALqUcG4w" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_Xm2vcHElEe-qh_ALqUcG4w" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_ykVCgXElEe-z_qQS4euoyw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_XnGnEHElEe-qh_ALqUcG4w" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_XnGnEXElEe-qh_ALqUcG4w" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
@@ -2573,4 +2577,5 @@
   <categories xmi:id="_XnGnNnElEe-qh_ALqUcG4w" elementId="com.genuitec.eclipse.inlinesearch.commands.category" name="Inline Search"/>
   <categories xmi:id="_XnGnN3ElEe-qh_ALqUcG4w" elementId="org.eclipse.cdt.debug.ui.category.tracing" name="Tracing Commands" description="Category for Tracing Commands"/>
   <categories xmi:id="_XnGnOHElEe-qh_ALqUcG4w" elementId="org.eclipse.cdt.managedbuilder.ui.category.build" name="C/C++ Build" description="C/C++ Build Actions"/>
+  <categories xmi:id="_E41FkMzkEe-30PM-SHxL7A" elementId="com.googlecode.cppcheclipse.Category" name="cppcheclipse" description="All cppcheclipse shortcuts"/>
 </application:Application>

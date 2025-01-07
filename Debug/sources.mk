@@ -27,6 +27,7 @@ Core/Src \
 Core/Src/Debounce \
 Core/Src/Debug \
 Core/Src/Filters \
+Core/Src/MH_Timer \
 Core/Src/Modbus \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \

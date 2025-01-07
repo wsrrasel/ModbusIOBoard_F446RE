@@ -12,8 +12,8 @@
 #include "main.h"
 #include "math.h"
 #include "MB_Config.h"
-//#include "stm32f1xx_hal_gpio.h"
-//#include "stm32f1xx_hal_tim.h"
+#include "mh_timer.h"
+
 
 
 
@@ -104,15 +104,21 @@ typedef enum MBS_StopBit{
 	MBS_SB_2,
 }MBS_StopBit;
 
+/*Connection Status*/
+typedef enum MBS_ConnStatus{
+	MBS_DISCONNECTED,
+	MBS_CONNECTED
+}MBS_ConnStatus_te;
 
-typedef struct MBS_Timer{
-	uint8_t enable;		// 1 = enable, 0 = disable
-	uint64_t time;				// count time in ms
-	uint32_t timeout;			// timeout period in ms
-	uint8_t isTimeout;			// timeout period in ms
-	uint8_t isTimeRst;				// count time in ms
-}MBS_Timer;
-
+//typedef struct MBS_Timer{
+//	uint8_t enable;		// 1 = enable, 0 = disable
+//	uint32_t time;				// count time in ms
+//	uint32_t timeout;			// timeout period in ms
+//	uint8_t isTimeout;			// timeout period in ms
+//	uint8_t isTimeRst;				// count time in ms
+//	uint32_t (*getTime)(void);		// time source
+//}MBS_Timer;
+//
 
 typedef struct MBS_Serial{
 
@@ -126,6 +132,7 @@ typedef struct MBS_Serial{
 	uint8_t saveSrlCnfFlag;
 
 	/*Flags*/
+	MBS_ConnStatus_te connStatus;
 	uint8_t isDataReceived;	// Received
 	uint8_t isReceiving;	// is ready to send
 	uint8_t isSending;
@@ -137,11 +144,16 @@ typedef struct MBS_Serial{
 	uint16_t rxBuffSize;
 	uint16_t txBuffSize;
 
+	/*Keep Alive*/
+	MH_Timer keepAliveTimer;
+
 	/*Callback*/
 	uint8_t (*rcvByte)(void);
 	uint8_t (*send)(uint8_t *buff, uint16_t size);
 	void (*setUpstream)(void);
 	void (*setDownstream)(void);
+	void (*connected)(void *arg);
+	void (*disconnected)(void *arg);
 }MBS_Serial;
 
 
@@ -165,7 +177,6 @@ void MBS_ClearTXBuffer(MBS_Serial *serial);
 void MBS_ClearRXBuffer(MBS_Serial *serial);
 
 uint16_t MBS_GetTransTimeout(uint8_t size, uint32_t baudRate);;
-
 uint32_t MBS_GetCharTimeCluster(uint32_t baudRate, float charType);
 
 #endif /* INC_MB_SERIAL_H_ */

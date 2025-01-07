@@ -30,7 +30,7 @@ Core/Src/Flash_Storage.o: ../Core/Src/Flash_Storage.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/Flash_Address.h \
- D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Debug/Debug.h \
+ D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debug/Debug.h \
  ../Core/Inc/main.h
 ../Core/Inc/Flash_Storag.h:
 ../Core/Inc/main.h:
@@ -64,5 +64,5 @@ Core/Src/Flash_Storage.o: ../Core/Src/Flash_Storage.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/Flash_Address.h:
-D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Debug/Debug.h:
+D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debug/Debug.h:
 ../Core/Inc/main.h:

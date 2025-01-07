@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Startup/%.o: ../Core/Startup/%.s Core/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Modbus" -I"D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Filters" -I"D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Debug" -I"D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Debounce" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus" -I"D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Filters" -I"D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debug" -I"D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debounce" -I"D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/MH_Timer" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Core-2f-Startup
 

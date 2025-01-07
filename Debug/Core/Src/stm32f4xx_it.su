@@ -12,3 +12,4 @@
 ../Core/Src/stm32f4xx_it.c:243:6:USART2_IRQHandler	8	static
 ../Core/Src/stm32f4xx_it.c:257:6:TIM5_IRQHandler	8	static
 ../Core/Src/stm32f4xx_it.c:272:6:USART6_IRQHandler	8	static
+../Core/Src/stm32f4xx_it.c:285:6:HAL_UART_ErrorCallback	80	static

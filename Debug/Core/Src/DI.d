@@ -1,5 +1,5 @@
 Core/Src/DI.o: ../Core/Src/DI.c ../Core/Inc/DI.h \
- D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h \
+ D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -30,7 +30,7 @@ Core/Src/DI.o: ../Core/Src/DI.c ../Core/Inc/DI.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 ../Core/Inc/DI.h:
-D:/Projects/Outsourcing/Fiverr/Clients/teck2024/PTCTemp/ModbusIO_STM32_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h:
+D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:

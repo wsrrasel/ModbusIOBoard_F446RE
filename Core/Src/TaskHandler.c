@@ -70,7 +70,14 @@ void TH_MB_ChecktSlaveAddressChange(void){
 }
 
 
-
+/**
+ * @brief Checks for serial configuration changes and applies them if needed.
+ *
+ * This function monitors the `saveSrlCnfFlag` to determine whether there are
+ * changes to the serial configuration that need to be saved and applied. If
+ * changes are detected, it applies the configuration, updates the system, and
+ * stores the new settings in flash memory.
+ */
 void TH_MB_CheckSerialConfigChanges(void){
 
 	/* Check the save command to save and apply
@@ -88,7 +95,9 @@ void TH_MB_CheckSerialConfigChanges(void){
 	FLASH_WriteInt(FSA_MB_SERIAL_STOPBIT, gVar.mbSerial.stopBit);
 }
 
+void TH_MB_CheckSerialConnection(void){
 
+}
 
 
 /*DIs-------------------------------------*/

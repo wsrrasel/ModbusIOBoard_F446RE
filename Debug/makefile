@@ -12,6 +12,7 @@ RM := rm -rf
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/Modbus/subdir.mk
+-include Core/Src/MH_Timer/subdir.mk
 -include Core/Src/Filters/subdir.mk
 -include Core/Src/Debug/subdir.mk
 -include Core/Src/Debounce/subdir.mk
@@ -67,8 +68,8 @@ all: main-build
 main-build: ModbusIOBoard_F446RE.elf secondary-outputs
 
 # Tool invocations
-ModbusIOBoard_F446RE.elf ModbusIOBoard_F446RE.map: $(OBJS) $(USER_OBJS) D:\Projects\Outsourcing\Fiverr\Clients\teck2024\PTCTemp\ModbusIO_STM32_FW\ModbusIOBoard_F446RE\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ModbusIOBoard_F446RE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Projects\Outsourcing\Fiverr\Clients\teck2024\PTCTemp\ModbusIO_STM32_FW\ModbusIOBoard_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ModbusIOBoard_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+ModbusIOBoard_F446RE.elf ModbusIOBoard_F446RE.map: $(OBJS) $(USER_OBJS) D:\Work\ProjectWork\ModbusIO\ModbusIOBoard_F446RE_FW\ModbusIOBoard_F446RE\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ModbusIOBoard_F446RE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Work\ProjectWork\ModbusIO\ModbusIOBoard_F446RE_FW\ModbusIOBoard_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ModbusIOBoard_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
