@@ -37,10 +37,10 @@ Core/Src/Debug/Debug.o: ../Core/Src/Debug/Debug.c \
  D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus/MB_RTUSlave.h \
  D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus/MB_Config.h \
  ../Core/Inc/Define.h \
- D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/MH_Timer/mh_timer.h \
  D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus/MB_RTUSlave.h \
  ../Core/Inc/Config.h \
- D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h
+ D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h \
+ D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/MH_Timer/mh_timer.h
 ../Core/Src/Debug/Debug.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -82,7 +82,7 @@ D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/S
 D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus/MB_RTUSlave.h:
 D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus/MB_Config.h:
 ../Core/Inc/Define.h:
-D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/MH_Timer/mh_timer.h:
 D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Modbus/MB_RTUSlave.h:
 ../Core/Inc/Config.h:
 D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/Debounce/Debounce.h:
+D:/Work/ProjectWork/ModbusIO/ModbusIOBoard_F446RE_FW/ModbusIOBoard_F446RE/Core/Src/MH_Timer/mh_timer.h:

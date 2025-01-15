@@ -69,6 +69,8 @@ void Error_Handler(void);
 #define DI_2_GPIO_Port GPIOA
 #define SA_3_Pin GPIO_PIN_2
 #define SA_3_GPIO_Port GPIOB
+#define DO_7_Pin GPIO_PIN_12
+#define DO_7_GPIO_Port GPIOB
 #define RS485_RX_LED_Pin GPIO_PIN_14
 #define RS485_RX_LED_GPIO_Port GPIOB
 #define RS485_TX_LED_Pin GPIO_PIN_15
@@ -77,6 +79,10 @@ void Error_Handler(void);
 #define RS485_TX_U6_GPIO_Port GPIOC
 #define RS485_RX_U6_Pin GPIO_PIN_7
 #define RS485_RX_U6_GPIO_Port GPIOC
+#define DO_6_Pin GPIO_PIN_8
+#define DO_6_GPIO_Port GPIOC
+#define DO_5_Pin GPIO_PIN_9
+#define DO_5_GPIO_Port GPIOC
 #define DO_0_Pin GPIO_PIN_8
 #define DO_0_GPIO_Port GPIOA
 #define DO_1_Pin GPIO_PIN_9
@@ -85,6 +91,8 @@ void Error_Handler(void);
 #define DO_2_GPIO_Port GPIOA
 #define DO_3_Pin GPIO_PIN_11
 #define DO_3_GPIO_Port GPIOA
+#define DO_4_Pin GPIO_PIN_12
+#define DO_4_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
@@ -101,6 +109,14 @@ void Error_Handler(void);
 #define RS485_DIR_GPIO_Port GPIOD
 #define SA_1_Pin GPIO_PIN_3
 #define SA_1_GPIO_Port GPIOB
+#define DI_7_Pin GPIO_PIN_4
+#define DI_7_GPIO_Port GPIOB
+#define DI_6_Pin GPIO_PIN_5
+#define DI_6_GPIO_Port GPIOB
+#define DI_5_Pin GPIO_PIN_6
+#define DI_5_GPIO_Port GPIOB
+#define DI_4_Pin GPIO_PIN_7
+#define DI_4_GPIO_Port GPIOB
 #define DI_3_Pin GPIO_PIN_8
 #define DI_3_GPIO_Port GPIOB
 #define SA_0_Pin GPIO_PIN_9

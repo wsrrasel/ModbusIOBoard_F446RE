@@ -1,3 +1,3 @@
 ../Core/Src/Settings.c:35:6:InitialSettings	16	static
-../Core/Src/Settings.c:97:6:UpdateSetting	16	static
-../Core/Src/Settings.c:187:6:FactorySettings	8	static
+../Core/Src/Settings.c:114:6:UpdateSetting	16	static
+../Core/Src/Settings.c:241:6:FactorySettings	8	static

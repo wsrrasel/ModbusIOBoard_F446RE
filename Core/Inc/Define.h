@@ -10,13 +10,13 @@
 #define INC_DEFINE_H_
 
 
-#define HW_VIRSION								0x0100
+#define HW_VIRSION								(HW_VIRSION_MAJOR<<8|HW_VIRSION_MINOR)
 #define HW_VIRSION_MAJOR						0x01
 #define HW_VIRSION_MINOR						0x00
 
-#define FW_VIRSION								0x0100
+#define FW_VIRSION								(FW_VIRSION_MAJOR<<8|FW_VIRSION_MINOR)
 #define FW_VIRSION_MAJOR						0x01
-#define FW_VIRSION_MINOR						0x01
+#define FW_VIRSION_MINOR						0x02
 
 
 #define DEF_MAX_U8								256U
@@ -25,7 +25,7 @@
 
 /*Modbus Slave----------------------*/
 #define DEF_MB_SLAVEADDR_CHECKING_INTERVAL		1U
-
+#define DEF_MB_SERIAL_KEEP_ALIVE_TIMEOUT_MIN	1000
 
 /*PTC-------------------------------*/
 #define DEF_PTC_SWITCHING_TEMP					150 //ohm

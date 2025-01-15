@@ -57,7 +57,11 @@ void MH_Timer_Disable(MH_Timer *timer) {
  * @param timer Pointer to the MH_Timer structure.
  */
 void MH_Timer_Update(MH_Timer *timer) {
-    if (timer == NULL || !timer->enable || timer->getTime == NULL) return;
+    if (timer == NULL || !timer->enable ||
+    	timer->getTime == NULL || timer->isTimeout)
+    {
+    	return;
+    }
 
     uint32_t currentTime = timer->getTime(); // Get the current time from the source
     uint32_t elapsedTime;
@@ -73,7 +77,7 @@ void MH_Timer_Update(MH_Timer *timer) {
     // Check if timeout has occurred
     if (elapsedTime >= timer->timeout) {
         timer->isTimeout = 1; // Set timeout flag
-        timer->enable = 0;    // Optionally disable the timer after timeout
+//        timer->enable = 0;    // Optionally disable the timer after timeout
     }
 }
 

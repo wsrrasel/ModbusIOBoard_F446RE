@@ -13,6 +13,7 @@
 /*Modbus-----------------*/
 void TH_MB_ChecktSlaveAddressChange(void);
 void TH_MB_CheckSerialConfigChanges(void);
+void TH_MB_CheckMBKeepAlive(void);
 
 /*DIOs-------------------*/
 void TH_DI(void);

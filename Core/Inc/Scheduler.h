@@ -11,6 +11,7 @@
 #include "MB_RTUSlave.h"
 #include "Config.h"
 #include "Debounce.h"
+#include "mh_timer.h"
 
 
 
@@ -21,6 +22,10 @@ typedef enum DI_Id{
 	DI_ID_1,
 	DI_ID_2,
 	DI_ID_3,
+	DI_ID_4,
+	DI_ID_5,
+	DI_ID_6,
+	DI_ID_7,
 	DI_ID_MAX
 }DI_Id_te;
 
@@ -28,7 +33,7 @@ typedef enum DI_Id{
 /*DI Structure*/
 typedef struct DI{
 	uint8_t id;
-	Debounce_ts debounce;
+	Debounce_ts debounce; //in us
 	GPIO_TypeDef *port;
 	uint16_t pin;
 	GPIO_PinState state;
@@ -43,6 +48,10 @@ typedef enum DO_Id{
 	DO_ID_1,
 	DO_ID_2,
 	DO_ID_3,
+	DO_ID_4,
+	DO_ID_5,
+	DO_ID_6,
+	DO_ID_7,
 	DO_ID_MAX
 }DO_Id_te;
 
@@ -78,12 +87,13 @@ typedef struct StatusLed{
 }StatusLed_ts;
 
 
+
 /*Global variables structure-----*/
 typedef struct GlobalVar{
 	/*Modbus---------------------*/
 	MBS_Serial mbSerial;
 	MB_RTUSlave mbRTUSlave;
-
+	MH_Timer mbKpAlvTimer;
 	/*DIs------------------------*/
 	DI_ts di[DI_ID_MAX];
 

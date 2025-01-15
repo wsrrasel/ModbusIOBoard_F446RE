@@ -82,6 +82,8 @@ void SchedulerInit(void){
 	TS_Init(&timStamp, &htim9);
 	TS_SetTimerType(&timStamp, TS_TIM_TYP_TIMER);
 	TS_StartTimer(&timStamp);
+
+	/*Debug init------------------------------*/
 	DEBUG_INIT(&huart2, &debug);
 	DEBUG_ENABLE();
 
@@ -96,7 +98,9 @@ void SchedulerInit(void){
 	PrintBoardInfo();
 
 
-
+	MH_Timer_Init(&gVar.mbKpAlvTimer,
+			CONF_DEF_MB_SERIAL_KEEP_ALIVE_TIMEOUT,
+			&HAL_GetTick);
 
 
 
@@ -108,6 +112,8 @@ void SchedulerInit(void){
 	MBRS_Init(&gVar.mbRTUSlave, CONF_DEF_MBRTUS_SLAVE_ADDRESS);
 	MBS_Init(&gVar.mbSerial, &huart6, &htim4, &htim5);		// initialize modbus serial
 	MBS_Config(&gVar.mbSerial);								// to configure the modbus serial and 3.5 and 1.5 char timer
+
+
 
 
 	/*Callback--------------------------------*/
@@ -191,6 +197,7 @@ void MediumLoop(void){
 	/*Factory reset-------------*/
 	TH_MB_ChecktSlaveAddressChange();
 	TH_MB_CheckSerialConfigChanges();
+	TH_MB_CheckMBKeepAlive();
 
 	/*Factory reset-------------*/
 	FLASH_CheckForChanges();
@@ -220,23 +227,32 @@ void VerySlowLoop(void){
 
 	DEBUG_PRINT("\r\n");
 	/*Modbus logging----------*/
-	DEBUG_SPRINT_NL("Modbus: {SA: %d, SrlConfig:{BR:%d, DB:%d, PB:%d, SB:%d}}",
+	DEBUG_SPRINT_NL("MBS:{SA: %d, Cnf:{BR:%d, DB:%d, PB:%d, SB:%d},"
+					"kpAlv:{En:%d, Tout:%ld, isTout:%d, isRst:%d}}",
 					gVar.mbRTUSlave.slave_address,
 					gVar.mbSerial.baudRate, gVar.mbSerial.dataBits,
-					gVar.mbSerial.parityBit, gVar.mbSerial.stopBit);
+					gVar.mbSerial.parityBit, gVar.mbSerial.stopBit,
+					gVar.mbKpAlvTimer.enable, gVar.mbKpAlvTimer.timeout,
+					gVar.mbKpAlvTimer.isTimeout, gVar.mbKpAlvTimer.isTimeRst);
 
 	/*Dis logging----------------*/
-	DEBUG_SPRINT_NL("DI 0 to 4: { State[%d, %d, %d, %d], "
-					"DbuncDelay[%ld, %ld, %ld, %ld]us }",
+	DEBUG_SPRINT_NL("DI 0 to 7: { State[%d, %d, %d, %d, %d, %d, %d, %d], "
+					"DbuncDelay[%ld, %ld, %ld, %ld, %ld, %ld, %ld, %ld]us }",
 					gVar.di[DI_ID_0].state, gVar.di[DI_ID_1].state,
 					gVar.di[DI_ID_2].state, gVar.di[DI_ID_3].state,
+					gVar.di[DI_ID_4].state, gVar.di[DI_ID_5].state,
+					gVar.di[DI_ID_6].state, gVar.di[DI_ID_7].state,
 					gVar.di[DI_ID_0].debounce.delay,gVar.di[DI_ID_1].debounce.delay,
-					gVar.di[DI_ID_2].debounce.delay,gVar.di[DI_ID_3].debounce.delay);
+					gVar.di[DI_ID_2].debounce.delay,gVar.di[DI_ID_3].debounce.delay,
+					gVar.di[DI_ID_4].debounce.delay,gVar.di[DI_ID_5].debounce.delay,
+					gVar.di[DI_ID_6].debounce.delay,gVar.di[DI_ID_7].debounce.delay);
 	DEBUG_SPRINT_NL(debug.str);
 	/*Dis logging----------------*/
-	DEBUG_SPRINT_NL("DO 0 to 4: { State[%d, %d, %d, %d] }",
+	DEBUG_SPRINT_NL("DO 0 to 7: { State[%d, %d, %d, %d, %d, %d, %d, %d] }",
 					gVar.do_[DO_ID_0].state, gVar.do_[DO_ID_1].state,
-					gVar.do_[DO_ID_2].state, gVar.do_[DO_ID_3].state);
+					gVar.do_[DO_ID_2].state, gVar.do_[DO_ID_3].state,
+					gVar.do_[DO_ID_4].state, gVar.do_[DO_ID_5].state,
+					gVar.do_[DO_ID_6].state, gVar.do_[DO_ID_7].state);
 	DEBUG_SPRINT_NL(debug.str);
 }
 

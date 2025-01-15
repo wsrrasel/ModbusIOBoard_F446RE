@@ -22,6 +22,9 @@
 #define CONF_DEF_MB_SERIAL_BR_INDEX				MBS_BR19200_INDEX // 0 position is the user define baud rate
 #define CONF_DEF_MB_SERIAL_CONFIG				((CONF_DEF_MB_SERIAL_BR_INDEX<<12) | (MBS_DB_8<<8) | (MBS_PB_EVEN<<4) | MBS_SB_1)//MBS_BR2000000_INDEX
 
+#define CONF_DEF_MB_SERIAL_KEEP_ALIVE_ENABLE	1
+#define CONF_DEF_MB_SERIAL_KEEP_ALIVE_TIMEOUT	1000U // in ms
+
 /*Timestamp---------------------------*/
 #define CONF_DEF_TIMESTAMP_TIME_SOURCE			TS_TIM_TYP_SYSTICK
 

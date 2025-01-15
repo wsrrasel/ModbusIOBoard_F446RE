@@ -1,7 +1,7 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1938:34:__NVIC_SystemReset	1
 ../Core/Src/TaskHandler.c:40:6:TH_MB_ChecktSlaveAddressChange	4
 ../Core/Src/TaskHandler.c:81:6:TH_MB_CheckSerialConfigChanges	2
-../Core/Src/TaskHandler.c:98:6:TH_MB_CheckSerialConnection	1
-../Core/Src/TaskHandler.c:119:6:TH_DI	2
-../Core/Src/TaskHandler.c:151:6:TH_DO	3
-../Core/Src/TaskHandler.c:183:6:TH_PushButton	2
+../Core/Src/TaskHandler.c:105:6:TH_MB_CheckMBKeepAlive	4
+../Core/Src/TaskHandler.c:133:6:TH_DI	2
+../Core/Src/TaskHandler.c:165:6:TH_DO	3
+../Core/Src/TaskHandler.c:197:6:TH_PushButton	2

@@ -95,8 +95,22 @@ void TH_MB_CheckSerialConfigChanges(void){
 	FLASH_WriteInt(FSA_MB_SERIAL_STOPBIT, gVar.mbSerial.stopBit);
 }
 
-void TH_MB_CheckSerialConnection(void){
-
+/**
+ * @brief Monitors the Modbus Keep-Alive timer and resets outputs if a timeout occurs.
+ *
+ * This function updates the Modbus Keep-Alive timer and checks for a timeout condition.
+ * If the timer has timed out, it resets the timer and turns off all digital outputs
+ * by setting their GPIO pins to a reset state.
+ */
+void TH_MB_CheckMBKeepAlive(void){
+	if(!gVar.mbKpAlvTimer.enable) {return;}
+	MH_Timer_Update(&gVar.mbKpAlvTimer);
+	if(MH_Timer_IsTimeout(&gVar.mbKpAlvTimer)){
+		MH_Timer_Reset(&gVar.mbKpAlvTimer);
+		for(uint8_t i = DO_ID_0; i < DO_ID_MAX; i++){
+			HAL_GPIO_WritePin(gVar.do_[i].port, gVar.do_[i].pin, GPIO_PIN_RESET);
+		}
+	}
 }
 
 
@@ -121,7 +135,7 @@ void TH_DI(void){
 	uint8_t inputState = 0;
 
 	for(uint8_t i = DI_ID_0; i < DI_ID_MAX; i++){
-		currentTime = (uint32_t)TS_GetUS(&timStamp);;
+		currentTime = (uint32_t)TS_GetUS(&timStamp);
 		inputState = HAL_GPIO_ReadPin(gVar.di[i].port, gVar.di[i].pin);
 		uint8_t status = Debounce(&gVar.di[i].debounce, currentTime, inputState);
 		gVar.di[i].state = gVar.di[i].debounce.state;

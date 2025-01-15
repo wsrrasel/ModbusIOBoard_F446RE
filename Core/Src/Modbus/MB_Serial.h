@@ -12,7 +12,6 @@
 #include "main.h"
 #include "math.h"
 #include "MB_Config.h"
-#include "mh_timer.h"
 
 
 
@@ -144,8 +143,7 @@ typedef struct MBS_Serial{
 	uint16_t rxBuffSize;
 	uint16_t txBuffSize;
 
-	/*Keep Alive*/
-	MH_Timer keepAliveTimer;
+
 
 	/*Callback*/
 	uint8_t (*rcvByte)(void);

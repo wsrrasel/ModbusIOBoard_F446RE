@@ -15,6 +15,7 @@
 #include "Flash_Storag.h"
 #include "TimeStamp.h"
 #include "TaskHandler.h"
+#include "mh_timer.h"
 
 extern GlobalVar gVar;
 extern Debug_ts debug;
@@ -97,6 +98,18 @@ uint8_t CB_MB_readDICallback(MB_DIAddrEnum address, uint8_t *value){
 		case MB_DIA_DI4_STATUS:
 			*value = gVar.di[DI_ID_3].state;
 			break;
+		case MB_DIA_DI5_STATUS:
+			*value = gVar.di[DI_ID_4].state;
+			break;
+		case MB_DIA_DI6_STATUS:
+			*value = gVar.di[DI_ID_5].state;
+			break;
+		case MB_DIA_DI7_STATUS:
+			*value = gVar.di[DI_ID_6].state;
+			break;
+		case MB_DIA_DI8_STATUS:
+			*value = gVar.di[DI_ID_7].state;
+			break;
 		default:
 			errorStatus = MB_ERROR;
 			break;
@@ -131,8 +144,28 @@ uint8_t CB_MB_writeCOCallback(MB_CoilAddrEnum address, uint8_t value){
 		case MB_COA_DO4_ENABLE:
 			HAL_GPIO_WritePin(DO_3_GPIO_Port, DO_3_Pin, value>0);
 			break;
+		case MB_COA_DO5_ENABLE:
+			HAL_GPIO_WritePin(DO_4_GPIO_Port, DO_4_Pin, value>0);
+			break;
+		case MB_COA_DO6_ENABLE:
+			HAL_GPIO_WritePin(DO_5_GPIO_Port, DO_5_Pin, value>0);
+			break;
+		case MB_COA_DO7_ENABLE:
+			HAL_GPIO_WritePin(DO_6_GPIO_Port, DO_6_Pin, value>0);
+			break;
+		case MB_COA_DO8_ENABLE:
+			HAL_GPIO_WritePin(DO_7_GPIO_Port, DO_7_Pin, value>0);
+			break;
+
+			/*Modbus------------*/
 		case MB_COA_MB_SERIAL_SAVE_CONFIG:
 			gVar.mbSerial.saveSrlCnfFlag = 1U;
+			break;
+		case MB_COA_MB_KEEP_ALIVE_ENABLE:
+				(value>0) ?
+				MH_Timer_Enable(&gVar.mbKpAlvTimer) :
+				MH_Timer_Disable(&gVar.mbKpAlvTimer);
+				FLASH_WriteInt(FSA_MB_KEEP_ALIVE_ENABLE, (value>0));
 			break;
 
 			/*Debug---------------------*/
@@ -170,8 +203,25 @@ uint8_t CB_MB_readCOCallback( MB_CoilAddrEnum address, uint8_t *value){
 		case MB_COA_DO4_ENABLE:
 			*value = HAL_GPIO_ReadPin(DO_3_GPIO_Port, DO_3_Pin);
 			break;
+		case MB_COA_DO5_ENABLE:
+			*value = HAL_GPIO_ReadPin(DO_4_GPIO_Port, DO_4_Pin);
+			break;
+		case MB_COA_DO6_ENABLE:
+			*value = HAL_GPIO_ReadPin(DO_5_GPIO_Port, DO_5_Pin);
+			break;
+		case MB_COA_DO7_ENABLE:
+			*value = HAL_GPIO_ReadPin(DO_6_GPIO_Port, DO_6_Pin);
+			break;
+		case MB_COA_DO8_ENABLE:
+			*value = HAL_GPIO_ReadPin(DO_7_GPIO_Port, DO_7_Pin);
+			break;
 		case MB_COA_MB_SERIAL_SAVE_CONFIG:
 			*value = gVar.mbSerial.saveSrlCnfFlag;
+			break;
+
+			/*Modbus------------*/
+		case MB_COA_MB_KEEP_ALIVE_ENABLE:
+			*value = gVar.mbKpAlvTimer.enable;
 			break;
 
 			/*Debug---------------------*/
@@ -246,6 +296,30 @@ uint8_t CB_MB_writeHRCallback( MB_HRAddrEnum address, uint16_t value){
 				errorStatus = MB_ERROR;
 			}
 			break;
+		case MB_HRA_DI4_DEBOUNCE_DELAY:
+			gVar.di[DI_ID_4].debounce.delay = value;
+			if( FLASH_WriteInt(FSA_DI4_DEBOUNCE_DELAY, value) != FLASH_ERR_NONE){
+				errorStatus = MB_ERROR;
+			}
+			break;
+		case MB_HRA_DI5_DEBOUNCE_DELAY:
+			gVar.di[DI_ID_5].debounce.delay = value;
+			if( FLASH_WriteInt(FSA_DI5_DEBOUNCE_DELAY, value) != FLASH_ERR_NONE){
+				errorStatus = MB_ERROR;
+			}
+			break;
+		case MB_HRA_DI6_DEBOUNCE_DELAY:
+			gVar.di[DI_ID_6].debounce.delay = value;
+			if( FLASH_WriteInt(FSA_DI6_DEBOUNCE_DELAY, value) != FLASH_ERR_NONE){
+				errorStatus = MB_ERROR;
+			}
+			break;
+		case MB_HRA_DI7_DEBOUNCE_DELAY:
+			gVar.di[DI_ID_7].debounce.delay = value;
+			if( FLASH_WriteInt(FSA_DI7_DEBOUNCE_DELAY, value) != FLASH_ERR_NONE){
+				errorStatus = MB_ERROR;
+			}
+			break;
 
 		/*Modbus Serial---------------------------*/
 		case MB_HRA_MB_SERIAL_BAUDRATE:
@@ -272,7 +346,19 @@ uint8_t CB_MB_writeHRCallback( MB_HRAddrEnum address, uint16_t value){
 				errorStatus = MB_ERROR;
 			}
 			break;
-
+		case MB_HRA_MB_KEEP_ALIVE_TIMEOUT:
+			if(value >= DEF_MB_SERIAL_KEEP_ALIVE_TIMEOUT_MIN && value <= UINT16_MAX){
+				gVar.mbKpAlvTimer.timeout = value;
+				if( FLASH_WriteInt(FSA_MB_KEEP_ALIVE_TIMEOUT, value) != FLASH_ERR_NONE){
+					errorStatus = MB_ERROR;
+				}
+			}else{
+				errorStatus = MB_ERROR;
+			}
+			break;
+		case MB_HRA_MB_KEEP_ALIVE:
+			MH_Timer_Reset(&gVar.mbKpAlvTimer);
+			break;
 		default:
 				errorStatus = MB_ERROR;
 			break;
@@ -304,6 +390,18 @@ uint8_t CB_MB_readHRCallback( MB_HRAddrEnum address, uint16_t *value){
 		case MB_HRA_DI3_DEBOUNCE_DELAY:
 			*value = (uint16_t)gVar.di[DI_ID_3].debounce.delay;
 			break;
+		case MB_HRA_DI4_DEBOUNCE_DELAY:
+			*value = (uint16_t)gVar.di[DI_ID_4].debounce.delay;
+			break;
+		case MB_HRA_DI5_DEBOUNCE_DELAY:
+			*value = (uint16_t)gVar.di[DI_ID_5].debounce.delay;
+			break;
+		case MB_HRA_DI6_DEBOUNCE_DELAY:
+			*value = (uint16_t)gVar.di[DI_ID_6].debounce.delay;
+			break;
+		case MB_HRA_DI7_DEBOUNCE_DELAY:
+			*value = (uint16_t)gVar.di[DI_ID_7].debounce.delay;
+			break;
 
 		/*Modbus Serial---------------------------*/
 		case MB_HRA_MB_SERIAL_BAUDRATE:
@@ -318,7 +416,12 @@ uint8_t CB_MB_readHRCallback( MB_HRAddrEnum address, uint16_t *value){
 		case MB_HRA_MB_SERIAL_STOPBIT:
 			*value = gVar.mbSerial.stopBit;
 			break;
-
+		case MB_HRA_MB_KEEP_ALIVE_TIMEOUT:
+			*value = gVar.mbKpAlvTimer.timeout;
+			break;
+		case MB_HRA_MB_KEEP_ALIVE:
+			*value = 0;
+			break;
 
 		default:
 				errorStatus = MB_ERROR;

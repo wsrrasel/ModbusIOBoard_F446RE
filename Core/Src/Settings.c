@@ -51,6 +51,7 @@ void InitialSettings(void){
 	HAL_GPIO_WritePin(RS485_RX_LED_GPIO_Port, RS485_RX_LED_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(RS485_TX_LED_GPIO_Port, RS485_TX_LED_Pin, GPIO_PIN_RESET);
 
+
 	/*DIs----------------------------------------*/
 	for(uint8_t i = DI_ID_0; i < DI_ID_MAX; i++){
 		gVar.di[i].id 		= i;
@@ -65,6 +66,14 @@ void InitialSettings(void){
 	gVar.di[DI_ID_2].pin 	= DI_2_Pin;
 	gVar.di[DI_ID_3].port 	= DI_3_GPIO_Port;
 	gVar.di[DI_ID_3].pin 	= DI_3_Pin;
+	gVar.di[DI_ID_4].port 	= DI_4_GPIO_Port;
+	gVar.di[DI_ID_4].pin 	= DI_4_Pin;
+	gVar.di[DI_ID_5].port 	= DI_5_GPIO_Port;
+	gVar.di[DI_ID_5].pin 	= DI_5_Pin;
+	gVar.di[DI_ID_6].port 	= DI_6_GPIO_Port;
+	gVar.di[DI_ID_6].pin 	= DI_6_Pin;
+	gVar.di[DI_ID_7].port 	= DI_7_GPIO_Port;
+	gVar.di[DI_ID_7].pin 	= DI_7_Pin;
 
 	/*DOs----------------------------------------*/
 	for(uint8_t i = DO_ID_0; i < DO_ID_MAX; i++){
@@ -79,6 +88,14 @@ void InitialSettings(void){
 	gVar.do_[DO_ID_2].pin 	= DO_2_Pin;
 	gVar.do_[DO_ID_3].port 	= DO_3_GPIO_Port;
 	gVar.do_[DO_ID_3].pin 	= DO_3_Pin;
+	gVar.do_[DO_ID_4].port 	= DO_4_GPIO_Port;
+	gVar.do_[DO_ID_4].pin 	= DO_4_Pin;
+	gVar.do_[DO_ID_5].port 	= DO_5_GPIO_Port;
+	gVar.do_[DO_ID_5].pin 	= DO_5_Pin;
+	gVar.do_[DO_ID_6].port 	= DO_6_GPIO_Port;
+	gVar.do_[DO_ID_6].pin 	= DO_6_Pin;
+	gVar.do_[DO_ID_7].port 	= DO_7_GPIO_Port;
+	gVar.do_[DO_ID_7].pin 	= DO_7_Pin;
 
 
 
@@ -130,7 +147,30 @@ void UpdateSetting(void){
 				}
 				gVar.di[DI_ID_3].debounce.delay = value;
 				break;
-
+			case FSA_DI4_DEBOUNCE_DELAY:
+				if(!(value < DEF_MAX_U16)){
+					value = CONF_DEF_DI_DEBOUNCE_DELAY;
+				}
+				gVar.di[DI_ID_4].debounce.delay = value;
+				break;
+			case FSA_DI5_DEBOUNCE_DELAY:
+				if(!(value < DEF_MAX_U16)){
+					value = CONF_DEF_DI_DEBOUNCE_DELAY;
+				}
+				gVar.di[DI_ID_5].debounce.delay = value;
+				break;
+			case FSA_DI6_DEBOUNCE_DELAY:
+				if(!(value < DEF_MAX_U16)){
+					value = CONF_DEF_DI_DEBOUNCE_DELAY;
+				}
+				gVar.di[DI_ID_6].debounce.delay = value;
+				break;
+			case FSA_DI7_DEBOUNCE_DELAY:
+				if(!(value < DEF_MAX_U16)){
+					value = CONF_DEF_DI_DEBOUNCE_DELAY;
+				}
+				gVar.di[DI_ID_7].debounce.delay = value;
+				break;
 			/*Modbus Serial---------------------------*/
 			case FSA_MB_SERIAL_BAUDRATE:
 				if(!(value < DEF_MAX_U16)){
@@ -156,7 +196,21 @@ void UpdateSetting(void){
 				}
 				gVar.mbSerial.stopBit = value;
 				break;
+			case FSA_MB_KEEP_ALIVE_ENABLE:
+				if(!(value == 0 || value == 1)){
+					value = CONF_DEF_MB_SERIAL_KEEP_ALIVE_ENABLE;
+				}
+				(value>0)?
+				MH_Timer_Enable(&gVar.mbKpAlvTimer):
+				MH_Timer_Disable(&gVar.mbKpAlvTimer);
 
+				break;
+			case FSA_MB_KEEP_ALIVE_TIMEOUT:
+				if(!(value >= DEF_MB_SERIAL_KEEP_ALIVE_TIMEOUT_MIN && value <= UINT16_MAX)){
+					value = CONF_DEF_MB_SERIAL_KEEP_ALIVE_TIMEOUT;
+				}
+				gVar.mbKpAlvTimer.timeout = value;
+				break;
 
 				/*Debug---------------------*/
 			case FSA_DEBUG_ENABLE:
